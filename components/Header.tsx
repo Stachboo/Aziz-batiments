@@ -50,9 +50,6 @@ export default function Header() {
               {t('brand.tagline')}
             </span>
           </div>
-          <div className="drapeau-bar ms-2">
-            <span /><span /><span />
-          </div>
         </Link>
 
         {/* Desktop nav */}
@@ -75,14 +72,17 @@ export default function Header() {
           </a>
         </nav>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Menu"
-        >
-          {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {/* Mobile: LangSwitcher + hamburger */}
+        <div className="flex md:hidden items-center gap-3">
+          <LangSwitcher />
+          <button
+            className="text-white"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menu"
+          >
+            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile dropdown */}

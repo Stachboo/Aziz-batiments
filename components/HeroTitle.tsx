@@ -86,7 +86,9 @@ export default function HeroTitle({ line1, line2 }: HeroTitleProps) {
         ref={line2Ref}
         className="block"
         style={{
-          WebkitTextStroke: '2px #f97316',
+          backgroundImage: 'linear-gradient(135deg, #f97316, #ea580c, #fdba74, #f97316)',
+          WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
           color: 'transparent',
           textShadow: 'none',
         }}

@@ -55,7 +55,9 @@ export default function Footer() {
                     href={link.href}
                     className="group flex items-center gap-3 text-acier-400 hover:text-white transition-colors text-sm"
                   >
-                    <span className="w-0 group-hover:w-4 h-px bg-flamme-400 transition-all duration-300" />
+                    <span
+                      className="w-0 group-hover:w-4 h-px bg-flamme-400 transition-all duration-300"
+                    />
                     {link.label}
                   </Link>
                 </li>
@@ -72,6 +74,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:0649427544"
+                  dir="ltr"
                   className="group flex items-center gap-3 text-acier-400 hover:text-white transition-colors text-sm"
                 >
                   <span className="w-9 h-9 flex items-center justify-center border border-charbon-500 rounded group-hover:border-flamme-400 group-hover:text-flamme-400 transition-colors">
@@ -82,13 +85,14 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contact@renovation-france.fr"
+                  href="mailto:hadriabdelaziz1965@gmail.com"
+                  dir="ltr"
                   className="group flex items-center gap-3 text-acier-400 hover:text-white transition-colors text-sm"
                 >
                   <span className="w-9 h-9 flex items-center justify-center border border-charbon-500 rounded group-hover:border-flamme-400 group-hover:text-flamme-400 transition-colors">
                     <Mail size={16} />
                   </span>
-                  contact@renovation-france.fr
+                  hadriabdelaziz1965@gmail.com
                 </a>
               </li>
               <li>

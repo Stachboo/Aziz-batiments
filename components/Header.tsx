@@ -69,7 +69,7 @@ export default function Header() {
             </Link>
           ))}
           <LangSwitcher />
-          <a href="tel:0649427544" className="btn-flamme text-sm py-2 px-6 rounded">
+          <a href="tel:0649427544" dir="ltr" className="btn-flamme text-sm py-2 px-6 rounded">
             <Phone size={16} />
             06 49 42 75 44
           </a>
@@ -104,6 +104,7 @@ export default function Header() {
             <LangSwitcher />
             <a
               href="tel:0649427544"
+              dir="ltr"
               className="btn-flamme text-sm py-3 px-6 rounded text-center mt-2"
             >
               <Phone size={16} />

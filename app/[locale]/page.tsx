@@ -17,6 +17,7 @@ export default function Home({ params }: { params: { locale: string } }) {
   setRequestLocale(params.locale);
   const t = useTranslations();
   const locale = params.locale;
+  const isAr = locale === 'ar';
 
   const engagements = [
     { icon: Star, label: t('engage.quality') },
@@ -86,7 +87,8 @@ export default function Home({ params }: { params: { locale: string } }) {
 
         {/* Watermark */}
         <div
-          className="absolute end-0 top-1/2 -translate-y-1/2 font-display font-bold uppercase text-charbon-700 pointer-events-none select-none"
+          aria-hidden="true"
+          className="absolute end-0 top-1/2 -translate-y-1/2 z-0 font-display font-bold uppercase text-charbon-700 pointer-events-none select-none"
           style={{
             fontSize: 'clamp(120px, 20vw, 280px)',
             opacity: 0.18,
@@ -98,9 +100,13 @@ export default function Home({ params }: { params: { locale: string } }) {
 
         {/* Orange shard */}
         <div
-          className={`absolute top-0 end-0 w-1/3 h-full opacity-10 pointer-events-none ${locale === 'ar' ? 'scale-x-[-1]' : ''}`}
+          aria-hidden="true"
+          className="absolute top-0 w-1/3 h-full opacity-10 pointer-events-none z-0"
           style={{
-            clipPath: 'polygon(60% 0, 100% 0, 100% 100%, 80% 100%)',
+            ...(isAr ? { left: 0 } : { right: 0 }),
+            clipPath: isAr
+              ? 'polygon(0 0, 40% 0, 20% 100%, 0 100%)'
+              : 'polygon(60% 0, 100% 0, 100% 100%, 80% 100%)',
             background: 'linear-gradient(135deg, transparent, #f97316)',
           }}
         />
@@ -122,7 +128,7 @@ export default function Home({ params }: { params: { locale: string } }) {
             {/* H1 */}
             <h1
               className="font-display font-bold uppercase leading-[0.9] mb-8"
-              style={{ fontSize: 'clamp(52px, 8vw, 96px)' }}
+              style={{ fontSize: 'clamp(36px, 8vw, 96px)' }}
             >
               <span className="block text-white">{t('hero.headline1')}</span>
               <span
@@ -137,19 +143,20 @@ export default function Home({ params }: { params: { locale: string } }) {
             </h1>
 
             {/* Subtext */}
-            <p className="text-acier-400 font-body text-lg max-w-xl mb-10">
+            <p className="text-acier-400 font-body text-base sm:text-lg max-w-xl mb-10">
               {t('hero.subtext')}
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 mb-16">
-              <Link href={`/${locale}/devis`} className="btn-flamme rounded">
+            {/* CTAs — devis button first on all screens */}
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 mb-16">
+              <Link href={`/${locale}/devis`} className="btn-flamme rounded justify-center">
                 {t('hero.cta.devis')}
                 <ArrowRight size={18} />
               </Link>
               <a
                 href="tel:0649427544"
-                className="inline-flex items-center gap-2 border border-charbon-500 hover:border-flamme-400 px-8 py-4 font-display uppercase tracking-wider text-sm transition-colors rounded"
+                dir="ltr"
+                className="inline-flex items-center justify-center gap-2 border border-charbon-500 hover:border-flamme-400 px-8 py-4 font-display uppercase tracking-wider text-sm transition-colors rounded"
               >
                 <Phone size={16} />
                 06 49 42 75 44
@@ -170,9 +177,10 @@ export default function Home({ params }: { params: { locale: string } }) {
 
         {/* Diagonal cut */}
         <div
+          aria-hidden="true"
           className="absolute bottom-0 left-0 right-0 h-20 bg-charbon-800"
           style={{
-            clipPath: locale === 'ar'
+            clipPath: isAr
               ? 'polygon(0 0, 100% 100%, 0 100%)'
               : 'polygon(0 100%, 100% 0, 100% 100%)',
           }}
@@ -226,7 +234,11 @@ export default function Home({ params }: { params: { locale: string } }) {
                 className="group relative bg-charbon-700 border border-charbon-500 p-8 rounded overflow-hidden card-lift"
               >
                 {/* Watermark number */}
-                <span className="absolute top-4 end-6 font-display text-charbon-600 text-6xl font-bold pointer-events-none">
+                <span
+                  aria-hidden="true"
+                  className="absolute top-4 font-display text-charbon-600 text-6xl font-bold pointer-events-none"
+                  style={isAr ? { left: '1.5rem' } : { right: '1.5rem' }}
+                >
                   {service.num}
                 </span>
 
@@ -256,7 +268,10 @@ export default function Home({ params }: { params: { locale: string } }) {
                 </ul>
 
                 {/* Bottom line */}
-                <div className="absolute bottom-0 start-0 w-0 group-hover:w-full h-1 bg-gradient-flamme transition-all duration-500" />
+                <div
+                  className="absolute bottom-0 w-0 group-hover:w-full h-1 bg-gradient-flamme transition-all duration-500"
+                  style={isAr ? { right: 0 } : { left: 0 }}
+                />
               </div>
             ))}
           </div>
@@ -298,7 +313,10 @@ export default function Home({ params }: { params: { locale: string } }) {
 
       {/* CTA BAND */}
       <section className="relative bg-charbon-800 py-20">
-        <div className="absolute start-0 top-0 bottom-0 w-2 bg-gradient-flamme" />
+        <div
+          className="absolute top-0 bottom-0 w-2 bg-gradient-flamme"
+          style={isAr ? { right: 0 } : { left: 0 }}
+        />
         <div className="absolute inset-0 stripe-accent pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>

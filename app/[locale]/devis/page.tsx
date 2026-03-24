@@ -452,6 +452,7 @@ export default function DevisPage() {
                 </h3>
                 <a
                   href="tel:0649427544"
+                  dir="ltr"
                   className="font-display text-2xl font-bold block mb-2"
                 >
                   06 49 42 75 44
@@ -470,10 +471,11 @@ export default function DevisPage() {
                   </h3>
                 </div>
                 <a
-                  href="mailto:contact@renovation-france.fr"
+                  href="mailto:hadriabdelaziz1965@gmail.com"
+                  dir="ltr"
                   className="text-acier-400 text-sm hover:text-flamme-400 transition-colors"
                 >
-                  contact@renovation-france.fr
+                  hadriabdelaziz1965@gmail.com
                 </a>
               </div>
 

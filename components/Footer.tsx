@@ -1,0 +1,117 @@
+import Link from 'next/link';
+import { Phone, Mail, MapPin } from 'lucide-react';
+
+const navLinks = [
+  { href: '/', label: 'Accueil' },
+  { href: '/realisations', label: 'Réalisations' },
+  { href: '/devis', label: 'Devis gratuit' },
+];
+
+export default function Footer() {
+  return (
+    <footer className="relative bg-charbon-900 border-t border-charbon-600">
+      <div className="absolute inset-0 stripe-accent opacity-50 pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-gradient-flamme rotate-45 flex items-center justify-center rounded-sm">
+                <span className="text-white font-display font-bold text-sm -rotate-45">
+                  R
+                </span>
+              </div>
+              <span className="font-display tracking-widest text-sm uppercase">
+                Rénovation
+              </span>
+              <div className="drapeau-bar ml-1">
+                <span /><span /><span />
+              </div>
+            </div>
+            <p className="text-acier-400 text-sm leading-relaxed mb-4">
+              Artisans spécialisés en carrelage, placo et peinture. Plus de 20
+              ans d&apos;expérience au service de vos projets de rénovation.
+            </p>
+            <p className="font-mono text-xs text-acier-400">
+              SIRET : 123 456 789 00012
+            </p>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <h3 className="text-flamme-400 font-display uppercase tracking-widest text-sm mb-6">
+              Navigation
+            </h3>
+            <ul className="space-y-3">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="group flex items-center gap-3 text-acier-400 hover:text-white transition-colors text-sm"
+                  >
+                    <span className="w-0 group-hover:w-4 h-px bg-flamme-400 transition-all duration-300" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-flamme-400 font-display uppercase tracking-widest text-sm mb-6">
+              Contact
+            </h3>
+            <ul className="space-y-4">
+              <li>
+                <a
+                  href="tel:0649427544"
+                  className="group flex items-center gap-3 text-acier-400 hover:text-white transition-colors text-sm"
+                >
+                  <span className="w-9 h-9 flex items-center justify-center border border-charbon-500 rounded group-hover:border-flamme-400 group-hover:text-flamme-400 transition-colors">
+                    <Phone size={16} />
+                  </span>
+                  06 49 42 75 44
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:contact@renovation-france.fr"
+                  className="group flex items-center gap-3 text-acier-400 hover:text-white transition-colors text-sm"
+                >
+                  <span className="w-9 h-9 flex items-center justify-center border border-charbon-500 rounded group-hover:border-flamme-400 group-hover:text-flamme-400 transition-colors">
+                    <Mail size={16} />
+                  </span>
+                  contact@renovation-france.fr
+                </a>
+              </li>
+              <li>
+                <div className="group flex items-center gap-3 text-acier-400 text-sm">
+                  <span className="w-9 h-9 flex items-center justify-center border border-charbon-500 rounded group-hover:border-flamme-400 group-hover:text-flamme-400 transition-colors">
+                    <MapPin size={16} />
+                  </span>
+                  France
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="relative z-10 border-t border-charbon-600 py-6">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-acier-400 text-xs">
+            &copy; {new Date().getFullYear()} Rénovation France. Tous droits
+            réservés.
+          </p>
+          <div className="flex items-center gap-2 text-xs text-acier-400">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            Disponible pour vos projets
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

@@ -5,65 +5,15 @@ import Image from 'next/image';
 import { ZoomIn, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-const projects = [
-  {
-    id: 1,
-    categoryKey: 'carrelage',
-    title: 'Salle de bain moderne',
-    description: 'Rénovation complète avec carrelage grand format et faïence murale.',
-    src: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80',
-    span: 'col-span-2',
-  },
-  {
-    id: 2,
-    categoryKey: 'peinture',
-    title: 'Salon contemporain',
-    description: 'Peinture décorative et mise en couleur du salon principal.',
-    src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
-  },
-  {
-    id: 3,
-    categoryKey: 'placo',
-    title: 'Cloison aménagement',
-    description: 'Création de cloisons pour redistribuer les espaces de vie.',
-    src: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80',
-  },
-  {
-    id: 4,
-    categoryKey: 'carrelage',
-    title: 'Cuisine travertin',
-    description: 'Pose de carrelage travertin pour une cuisine chaleureuse.',
-    src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
-  },
-  {
-    id: 5,
-    categoryKey: 'peinture',
-    title: 'Chambre apaisante',
-    description: 'Peinture douce et harmonieuse pour un espace de repos.',
-    src: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80',
-  },
-  {
-    id: 6,
-    categoryKey: 'placo',
-    title: 'Plafond suspendu',
-    description: 'Installation de plafond suspendu avec éclairage intégré.',
-    src: 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&q=80',
-    span: 'col-span-2',
-  },
-  {
-    id: 7,
-    categoryKey: 'carrelage',
-    title: 'Terrasse extérieure',
-    description: 'Carrelage extérieur antidérapant pour terrasse moderne.',
-    src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-  },
-  {
-    id: 8,
-    categoryKey: 'peinture',
-    title: 'Bureau professionnel',
-    description: "Mise en peinture d'un espace de travail contemporain.",
-    src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-  },
+const projectData = [
+  { id: 1, categoryKey: 'carrelage', src: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80', span: 'col-span-2' },
+  { id: 2, categoryKey: 'peinture', src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80' },
+  { id: 3, categoryKey: 'placo', src: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80' },
+  { id: 4, categoryKey: 'carrelage', src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80' },
+  { id: 5, categoryKey: 'peinture', src: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80' },
+  { id: 6, categoryKey: 'placo', src: 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&q=80', span: 'col-span-2' },
+  { id: 7, categoryKey: 'carrelage', src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80' },
+  { id: 8, categoryKey: 'peinture', src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80' },
 ];
 
 const filterKeys = ['all', 'carrelage', 'placo', 'peinture'] as const;
@@ -71,6 +21,13 @@ const filterKeys = ['all', 'carrelage', 'placo', 'peinture'] as const;
 export default function RealisationsPage() {
   const t = useTranslations();
   const [filter, setFilter] = useState<string>('all');
+
+  const projects = projectData.map((p) => ({
+    ...p,
+    title: t(`real.projects.${p.id}.title`),
+    description: t(`real.projects.${p.id}.desc`),
+  }));
+
   const [lightbox, setLightbox] = useState<(typeof projects)[number] | null>(null);
 
   const filtered = filter === 'all' ? projects : projects.filter((p) => p.categoryKey === filter);

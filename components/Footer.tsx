@@ -29,7 +29,7 @@ export default function Footer() {
                 </span>
               </div>
               <span className="font-display tracking-widest text-sm uppercase">
-                Rénovation
+                {t('brand.name')}
               </span>
               <div className="drapeau-bar ms-1">
                 <span /><span /><span />
@@ -39,7 +39,7 @@ export default function Footer() {
               {t('footer.desc')}
             </p>
             <p className="font-mono text-xs text-acier-400">
-              SIRET : 123 456 789 00012
+              {t('footer.siret')}
             </p>
           </div>
 
@@ -100,7 +100,7 @@ export default function Footer() {
                   <span className="w-9 h-9 flex items-center justify-center border border-charbon-500 rounded group-hover:border-flamme-400 group-hover:text-flamme-400 transition-colors">
                     <MapPin size={16} />
                   </span>
-                  France
+                  {t('footer.location')}
                 </div>
               </li>
             </ul>
@@ -112,7 +112,7 @@ export default function Footer() {
       <div className="relative z-10 border-t border-charbon-600 py-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-acier-400 text-xs">
-            &copy; {new Date().getFullYear()} Rénovation France. {t('footer.rights')}.
+            &copy; {new Date().getFullYear()} {t('footer.copyright')}. {t('footer.rights')}.
           </p>
           <div className="flex items-center gap-2 text-xs text-acier-400">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />

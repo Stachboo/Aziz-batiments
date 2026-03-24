@@ -117,7 +117,7 @@ export default function DevisPage() {
       if (!res.ok) throw new Error('Error');
       setSuccess(true);
     } catch {
-      setError(t('devis.success.text'));
+      setError(t('devis.error'));
     } finally {
       setLoading(false);
     }
@@ -220,7 +220,7 @@ export default function DevisPage() {
                       value={form.nom}
                       onChange={(e) => updateField('nom', e.target.value)}
                       className="input-custom w-full px-4 py-3 rounded"
-                      placeholder="Jean Dupont"
+                      placeholder={t('devis.placeholder.nom')}
                     />
                   </div>
                   <div>
@@ -234,7 +234,7 @@ export default function DevisPage() {
                       value={form.telephone}
                       onChange={(e) => updateField('telephone', e.target.value)}
                       className="input-custom w-full px-4 py-3 rounded"
-                      placeholder="06 00 00 00 00"
+                      placeholder={t('devis.placeholder.telephone')}
                     />
                   </div>
                   <div>
@@ -248,7 +248,7 @@ export default function DevisPage() {
                       value={form.email}
                       onChange={(e) => updateField('email', e.target.value)}
                       className="input-custom w-full px-4 py-3 rounded"
-                      placeholder="jean@exemple.fr"
+                      placeholder={t('devis.placeholder.email')}
                     />
                   </div>
                   <div>
@@ -261,7 +261,7 @@ export default function DevisPage() {
                       value={form.adresse}
                       onChange={(e) => updateField('adresse', e.target.value)}
                       className="input-custom w-full px-4 py-3 rounded"
-                      placeholder="123 Rue de la Paix, Paris"
+                      placeholder={t('devis.placeholder.adresse')}
                     />
                   </div>
                 </div>

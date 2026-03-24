@@ -95,7 +95,7 @@ export default function Home({ params }: { params: { locale: string } }) {
             lineHeight: 1,
           }}
         >
-          RÉNOV
+          {t('hero.watermark')}
         </div>
 
         {/* Orange shard */}

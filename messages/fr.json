@@ -13,6 +13,7 @@
     "headline1": "Votre intérieur,",
     "headline2": "réinventé.",
     "subtext": "Carrelage, placo, peinture — trois métiers maîtrisés avec la même exigence. Nous transformons vos espaces avec rigueur et savoir-faire artisanal.",
+    "watermark": "RÉNOV",
     "cta": {
       "devis": "Demander un devis",
       "call": "Appeler maintenant"
@@ -94,6 +95,16 @@
       "carrelage": "Carrelage",
       "placo": "Placo",
       "peinture": "Peinture"
+    },
+    "projects": {
+      "1": { "title": "Salle de bain moderne", "desc": "Rénovation complète avec carrelage grand format et faïence murale." },
+      "2": { "title": "Salon contemporain", "desc": "Peinture décorative et mise en couleur du salon principal." },
+      "3": { "title": "Cloison aménagement", "desc": "Création de cloisons pour redistribuer les espaces de vie." },
+      "4": { "title": "Cuisine travertin", "desc": "Pose de carrelage travertin pour une cuisine chaleureuse." },
+      "5": { "title": "Chambre apaisante", "desc": "Peinture douce et harmonieuse pour un espace de repos." },
+      "6": { "title": "Plafond suspendu", "desc": "Installation de plafond suspendu avec éclairage intégré." },
+      "7": { "title": "Terrasse extérieure", "desc": "Carrelage extérieur antidérapant pour terrasse moderne." },
+      "8": { "title": "Bureau professionnel", "desc": "Mise en peinture d'un espace de travail contemporain." }
     }
   },
   "devis": {
@@ -143,6 +154,13 @@
     "submit": "Envoyer ma demande de devis",
     "submitting": "Envoi en cours…",
     "guarantee": "Réponse garantie sous 48h · Devis 100% gratuit · Sans engagement",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "placeholder": {
+      "nom": "Jean Dupont",
+      "telephone": "06 00 00 00 00",
+      "email": "jean@exemple.fr",
+      "adresse": "123 Rue de la Paix, Paris"
+    },
     "success": {
       "title": "Demande envoyée !",
       "text": "Votre demande a bien été reçue. Nous vous recontacterons dans les 48 heures.",
@@ -166,12 +184,19 @@
       "5": "Entreprise française de confiance"
     }
   },
+  "brand": {
+    "name": "Rénovation",
+    "tagline": "Carrelage · Placo · Peinture"
+  },
   "footer": {
     "desc": "Artisans qualifiés au service de votre intérieur depuis 1965.",
     "nav": "Navigation",
     "contact": "Contact",
     "available": "Disponible pour vos projets",
-    "rights": "Tous droits réservés"
+    "rights": "Tous droits réservés",
+    "location": "France",
+    "copyright": "Rénovation France",
+    "siret": "SIRET : 123 456 789 00012"
   },
   "meta": {
     "home": {

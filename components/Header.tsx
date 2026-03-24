@@ -44,10 +44,10 @@ export default function Header() {
           </div>
           <div className="flex flex-col">
             <span className="font-display tracking-widest text-sm uppercase leading-tight">
-              Rénovation
+              {t('brand.name')}
             </span>
             <span className="font-mono text-flamme-400 text-[10px] tracking-wider">
-              Carrelage · Placo · Peinture
+              {t('brand.tagline')}
             </span>
           </div>
           <div className="drapeau-bar ms-2">

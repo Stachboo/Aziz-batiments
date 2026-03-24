@@ -37,7 +37,7 @@ export async function sendDevisEmail(data: DevisEmailData) {
 
   // EMAIL 1 — Internal notification
   await getResend().emails.send({
-    from: 'devis@renovation-france.fr',
+    from: 'onboarding@resend.dev',
     to: 'hadriabdelaziz1965@gmail.com',
     subject: `🔔 Nouveau devis — ${nom} — ${service || 'Non précisé'}`,
     html: `
@@ -119,7 +119,7 @@ export async function sendDevisEmail(data: DevisEmailData) {
 
   // EMAIL 2 — Client confirmation
   await getResend().emails.send({
-    from: 'devis@renovation-france.fr',
+    from: 'onboarding@resend.dev',
     to: email,
     subject: '✅ Votre demande de devis a bien été reçue — Rénovation France',
     html: `

@@ -8,21 +8,24 @@ export default function LangSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleSwitch = () => {
+  const switchLocale = () => {
     const targetLocale = locale === 'fr' ? 'ar' : 'fr';
-    // Remove current locale prefix and add new one
-    const pathWithoutLocale = pathname.replace(/^\/(fr|ar)/, '') || '/';
-    const newPath = '/' + targetLocale + pathWithoutLocale;
+    const newPath = pathname.replace(`/${locale}`, `/${targetLocale}`);
     document.cookie = `NEXT_LOCALE=${targetLocale};max-age=31536000;path=/`;
     router.push(newPath);
   };
 
   return (
     <button
-      onClick={handleSwitch}
-      className="border border-charbon-500 hover:border-flamme-400 px-3 py-1.5 rounded-full font-display text-sm text-acier-200 hover:text-white transition-colors"
+      onClick={switchLocale}
+      className="flex items-center gap-1.5 border border-charbon-500 hover:border-flamme-400 text-acier-200 hover:text-white font-display text-sm px-3 py-1.5 transition-all duration-200"
+      aria-label="Changer de langue"
     >
-      {locale === 'fr' ? '🇲🇦 عربي' : '🇫🇷 Français'}
+      {locale === 'fr' ? (
+        <span>🇲🇦 عربي</span>
+      ) : (
+        <span>🇫🇷 Français</span>
+      )}
     </button>
   );
 }

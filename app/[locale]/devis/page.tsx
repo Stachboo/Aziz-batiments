@@ -11,21 +11,7 @@ import {
   Phone,
   Mail,
 } from 'lucide-react';
-
-const serviceOptions = ['Carrelage', 'Placo', 'Peinture', 'Plusieurs travaux'];
-const budgetOptions = [
-  'Moins de 1 000€',
-  '1 000€ – 3 000€',
-  '3 000€ – 8 000€',
-  'Plus de 8 000€',
-  'À définir',
-];
-const delaiOptions = [
-  'Urgent < 1 mois',
-  '1 à 3 mois',
-  '3 à 6 mois',
-  'Pas de contrainte',
-];
+import { useTranslations } from 'next-intl';
 
 interface FormState {
   nom: string;
@@ -40,6 +26,28 @@ interface FormState {
 }
 
 export default function DevisPage() {
+  const t = useTranslations();
+
+  const serviceOptions = [
+    { value: t('devis.service.carrelage'), label: t('devis.service.carrelage') },
+    { value: t('devis.service.placo'), label: t('devis.service.placo') },
+    { value: t('devis.service.peinture'), label: t('devis.service.peinture') },
+    { value: t('devis.service.multiple'), label: t('devis.service.multiple') },
+  ];
+  const budgetOptions = [
+    t('devis.budget.1'),
+    t('devis.budget.2'),
+    t('devis.budget.3'),
+    t('devis.budget.4'),
+    t('devis.budget.5'),
+  ];
+  const delaiOptions = [
+    t('devis.delai.1'),
+    t('devis.delai.2'),
+    t('devis.delai.3'),
+    t('devis.delai.4'),
+  ];
+
   const [form, setForm] = useState<FormState>({
     nom: '',
     telephone: '',
@@ -106,10 +114,10 @@ export default function DevisPage() {
         body: formData,
       });
 
-      if (!res.ok) throw new Error('Erreur lors de l\'envoi');
+      if (!res.ok) throw new Error('Error');
       setSuccess(true);
     } catch {
-      setError('Une erreur est survenue. Veuillez réessayer ou nous appeler directement.');
+      setError(t('devis.success.text'));
     } finally {
       setLoading(false);
     }
@@ -123,16 +131,15 @@ export default function DevisPage() {
             <CheckCircle size={40} className="text-white" />
           </div>
           <h2 className="font-display uppercase text-3xl font-bold mb-4">
-            Demande envoyée !
+            {t('devis.success.title')}
           </h2>
           <p className="text-acier-400 mb-8">
-            Nous avons bien reçu votre demande de devis. Notre équipe vous
-            contactera dans les 48 heures pour discuter de votre projet.
+            {t('devis.success.text')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="tel:0649427544" className="btn-flamme rounded justify-center">
               <Phone size={16} />
-              Appeler maintenant
+              {t('nav.call')}
             </a>
             <button
               onClick={() => {
@@ -153,7 +160,7 @@ export default function DevisPage() {
               }}
               className="border border-charbon-500 hover:border-flamme-400 px-6 py-3 font-display uppercase tracking-wider text-sm transition-colors rounded"
             >
-              Nouveau devis
+              {t('devis.success.new')}
             </button>
           </div>
         </div>
@@ -170,15 +177,14 @@ export default function DevisPage() {
           <div className="flex items-center gap-4 mb-4">
             <div className="h-px w-12 bg-flamme-400" />
             <span className="font-mono text-flamme-400 uppercase tracking-[0.3em] text-xs">
-              Devis gratuit
+              {t('devis.eyebrow')}
             </span>
           </div>
           <h1 className="font-display font-bold uppercase text-4xl md:text-5xl mb-4">
-            Demandez votre devis
+            {t('devis.headline')}
           </h1>
           <p className="text-acier-400 max-w-xl">
-            Remplissez le formulaire ci-dessous et recevez une estimation
-            détaillée sous 48h. C&apos;est gratuit et sans engagement.
+            {t('devis.subtext')}
           </p>
         </div>
       </section>
@@ -200,16 +206,17 @@ export default function DevisPage() {
               {/* Section 01 - Coordonnées */}
               <fieldset className="bg-charbon-700 border border-charbon-500 p-8 rounded">
                 <span className="font-mono text-flamme-400 text-xs uppercase tracking-wider">
-                  01 — Coordonnées
+                  01 — {t('devis.section1')}
                 </span>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                   <div>
                     <label className="block text-sm font-display uppercase tracking-wider mb-2">
-                      Nom complet *
+                      {t('devis.nom')} *
                     </label>
                     <input
                       type="text"
                       required
+                      dir="auto"
                       value={form.nom}
                       onChange={(e) => updateField('nom', e.target.value)}
                       className="input-custom w-full px-4 py-3 rounded"
@@ -218,11 +225,12 @@ export default function DevisPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-display uppercase tracking-wider mb-2">
-                      Téléphone *
+                      {t('devis.telephone')} *
                     </label>
                     <input
                       type="tel"
                       required
+                      dir="auto"
                       value={form.telephone}
                       onChange={(e) => updateField('telephone', e.target.value)}
                       className="input-custom w-full px-4 py-3 rounded"
@@ -231,11 +239,12 @@ export default function DevisPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-display uppercase tracking-wider mb-2">
-                      Email *
+                      {t('devis.email')} *
                     </label>
                     <input
                       type="email"
                       required
+                      dir="auto"
                       value={form.email}
                       onChange={(e) => updateField('email', e.target.value)}
                       className="input-custom w-full px-4 py-3 rounded"
@@ -244,10 +253,11 @@ export default function DevisPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-display uppercase tracking-wider mb-2">
-                      Adresse
+                      {t('devis.adresse')}
                     </label>
                     <input
                       type="text"
+                      dir="auto"
                       value={form.adresse}
                       onChange={(e) => updateField('adresse', e.target.value)}
                       className="input-custom w-full px-4 py-3 rounded"
@@ -260,27 +270,27 @@ export default function DevisPage() {
               {/* Section 02 - Projet */}
               <fieldset className="bg-charbon-700 border border-charbon-500 p-8 rounded">
                 <span className="font-mono text-flamme-400 text-xs uppercase tracking-wider">
-                  02 — Votre projet
+                  02 — {t('devis.section2')}
                 </span>
 
                 {/* Service */}
                 <div className="mt-6">
                   <label className="block text-sm font-display uppercase tracking-wider mb-3">
-                    Type de travaux
+                    {t('devis.service.label')}
                   </label>
                   <div className="flex flex-wrap gap-3">
                     {serviceOptions.map((opt) => (
                       <button
-                        key={opt}
+                        key={opt.value}
                         type="button"
-                        onClick={() => updateField('service', opt)}
+                        onClick={() => updateField('service', opt.value)}
                         className={`px-5 py-2 rounded-full text-sm font-mono uppercase tracking-wider transition-all ${
-                          form.service === opt
+                          form.service === opt.value
                             ? 'bg-gradient-flamme text-white'
                             : 'border border-charbon-500 text-acier-400 hover:border-flamme-400'
                         }`}
                       >
-                        {opt}
+                        {opt.label}
                       </button>
                     ))}
                   </div>
@@ -289,21 +299,22 @@ export default function DevisPage() {
                 {/* Surface */}
                 <div className="mt-6">
                   <label className="block text-sm font-display uppercase tracking-wider mb-2">
-                    Surface (m²)
+                    {t('devis.surface')}
                   </label>
                   <input
                     type="number"
+                    dir="auto"
                     value={form.surface}
                     onChange={(e) => updateField('surface', e.target.value)}
                     className="input-custom w-full max-w-xs px-4 py-3 rounded text-sm"
-                    placeholder="Ex: 25"
+                    placeholder={t('devis.surfacePlaceholder')}
                   />
                 </div>
 
                 {/* Budget */}
                 <div className="mt-6">
                   <label className="block text-sm font-display uppercase tracking-wider mb-3">
-                    Budget estimé
+                    {t('devis.budget.label')}
                   </label>
                   <div className="flex flex-wrap gap-3">
                     {budgetOptions.map((opt) => (
@@ -326,7 +337,7 @@ export default function DevisPage() {
                 {/* Délai */}
                 <div className="mt-6">
                   <label className="block text-sm font-display uppercase tracking-wider mb-3">
-                    Délai souhaité
+                    {t('devis.delai.label')}
                   </label>
                   <div className="flex flex-wrap gap-3">
                     {delaiOptions.map((opt) => (
@@ -349,14 +360,15 @@ export default function DevisPage() {
                 {/* Description */}
                 <div className="mt-6">
                   <label className="block text-sm font-display uppercase tracking-wider mb-2">
-                    Description du projet
+                    {t('devis.description.label')}
                   </label>
                   <textarea
                     rows={5}
+                    dir="auto"
                     value={form.description}
                     onChange={(e) => updateField('description', e.target.value)}
                     className="input-custom w-full px-4 py-3 rounded resize-none"
-                    placeholder="Décrivez l'état actuel de la pièce, les travaux souhaités, vos préférences de matériaux, couleurs..."
+                    placeholder={t('devis.description.placeholder')}
                   />
                 </div>
               </fieldset>
@@ -364,7 +376,7 @@ export default function DevisPage() {
               {/* Section 03 - Photos */}
               <fieldset className="bg-charbon-700 border border-charbon-500 p-8 rounded">
                 <span className="font-mono text-flamme-400 text-xs uppercase tracking-wider">
-                  03 — Photos (optionnel, max 5)
+                  03 — {t('devis.section3')} ({t('devis.section3Hint')})
                 </span>
 
                 <div className="mt-6">
@@ -379,10 +391,10 @@ export default function DevisPage() {
                     <input {...getInputProps()} />
                     <Upload size={32} className="mx-auto text-acier-400 mb-3" />
                     <p className="text-sm text-acier-400">
-                      Glisser-déposer ou cliquer
+                      {t('devis.photos.cta')}
                     </p>
                     <p className="text-xs text-acier-400/60 mt-1">
-                      JPG, PNG — 8 Mo max par fichier
+                      {t('devis.photos.hint')}
                     </p>
                   </div>
 
@@ -403,7 +415,7 @@ export default function DevisPage() {
                           <button
                             type="button"
                             onClick={() => removePhoto(i)}
-                            className="absolute top-1 right-1 w-6 h-6 bg-rouge rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="absolute top-1 end-1 w-6 h-6 bg-rouge rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                           >
                             <X size={14} />
                           </button>
@@ -423,11 +435,11 @@ export default function DevisPage() {
                 {loading ? (
                   <Loader2 size={20} className="animate-spin" />
                 ) : (
-                  'Envoyer ma demande'
+                  t('devis.submit')
                 )}
               </button>
               <p className="font-mono text-xs text-acier-400 text-center">
-                Réponse garantie sous 48h · Devis 100% gratuit · Sans engagement
+                {t('devis.guarantee')}
               </p>
             </form>
 
@@ -436,7 +448,7 @@ export default function DevisPage() {
               {/* Phone card */}
               <div className="bg-gradient-flamme p-6 rounded">
                 <h3 className="font-display uppercase tracking-wider text-lg mb-3">
-                  Préférez appeler ?
+                  {t('devis.sidebar.call.title')}
                 </h3>
                 <a
                   href="tel:0649427544"
@@ -445,9 +457,7 @@ export default function DevisPage() {
                   06 49 42 75 44
                 </a>
                 <p className="text-white/70 text-sm">
-                  Lun – Ven : 8h – 19h
-                  <br />
-                  Sam : 9h – 17h
+                  {t('devis.sidebar.call.hours')}
                 </p>
               </div>
 
@@ -456,7 +466,7 @@ export default function DevisPage() {
                 <div className="flex items-center gap-3 mb-2">
                   <Mail size={18} className="text-flamme-400" />
                   <h3 className="font-display uppercase tracking-wider text-sm">
-                    Par email
+                    {t('devis.sidebar.email.title')}
                   </h3>
                 </div>
                 <a
@@ -470,24 +480,15 @@ export default function DevisPage() {
               {/* Why us card */}
               <div className="bg-charbon-700 border border-charbon-500 p-6 rounded">
                 <h3 className="font-display uppercase tracking-wider text-sm mb-4">
-                  Pourquoi nous choisir ?
+                  {t('devis.sidebar.why')}
                 </h3>
                 <ul className="space-y-3 text-sm text-acier-400">
-                  <li className="flex items-start gap-2">
-                    <span>🏆</span> Plus de 20 ans d&apos;expérience
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span>✅</span> Artisans qualifiés &amp; assurés
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span>📋</span> Devis détaillé et transparent
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span>⏱️</span> Respect des délais garantis
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span>🇫🇷</span> Entreprise française de confiance
-                  </li>
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <li key={n} className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-flamme-400 flex-shrink-0 mt-1.5" />
+                      {t(`devis.why.${n}`)}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

@@ -1,0 +1,190 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "realisations": "Réalisations",
+    "devis": "Devis Gratuit",
+    "call": "Appeler maintenant"
+  },
+  "lang": {
+    "switch": "عربي"
+  },
+  "hero": {
+    "eyebrow": "Artisans qualifiés",
+    "headline1": "Votre intérieur,",
+    "headline2": "réinventé.",
+    "subtext": "Carrelage, placo, peinture — trois métiers maîtrisés avec la même exigence. Nous transformons vos espaces avec rigueur et savoir-faire artisanal.",
+    "cta": {
+      "devis": "Demander un devis",
+      "call": "Appeler maintenant"
+    }
+  },
+  "stats": {
+    "experience": "Années d'expérience",
+    "chantiers": "Chantiers réalisés",
+    "satisfaction": "Clients satisfaits",
+    "reponse": "Délai de réponse"
+  },
+  "services": {
+    "eyebrow": "Nos métiers",
+    "headline1": "Trois savoir-faire,",
+    "headline2": "une seule exigence.",
+    "carrelage": {
+      "title": "Carrelage",
+      "desc": "Pose de carrelage intérieur et extérieur, faïence, mosaïque. Travaux de précision pour sols et murs, avec finitions impeccables.",
+      "d1": "Carrelage sol & mur",
+      "d2": "Faïence salle de bain",
+      "d3": "Terrasse & extérieur",
+      "d4": "Rénovation complète"
+    },
+    "placo": {
+      "title": "Placo",
+      "desc": "Création et isolation de cloisons, plafonds suspendus, doublages muraux. Solutions sur mesure pour optimiser vos espaces.",
+      "d1": "Cloisons & doublages",
+      "d2": "Plafonds suspendus",
+      "d3": "Isolation thermique",
+      "d4": "Habillage & finition"
+    },
+    "peinture": {
+      "title": "Peinture",
+      "desc": "Peinture intérieure et décorative, enduits, papiers peints. Un rendu professionnel pour transformer votre habitat.",
+      "d1": "Peinture intérieure",
+      "d2": "Enduits décoratifs",
+      "d3": "Papiers peints",
+      "d4": "Lasures & vernis"
+    }
+  },
+  "engage": {
+    "quality": "Qualité artisanale",
+    "delai": "Respect des délais",
+    "garantie": "Travaux garantis",
+    "devis": "Devis gratuit"
+  },
+  "process": {
+    "eyebrow": "Comment ça marche",
+    "headline": "Simple & transparent",
+    "step1": {
+      "title": "Décrivez votre projet",
+      "desc": "Remplissez le formulaire en ligne avec photos de votre espace."
+    },
+    "step2": {
+      "title": "Échange & visite",
+      "desc": "Nous vous contactons sous 48h pour affiner le projet."
+    },
+    "step3": {
+      "title": "Devis gratuit",
+      "desc": "Vous recevez un devis détaillé et transparent, sans engagement."
+    },
+    "step4": {
+      "title": "Réalisation",
+      "desc": "Nos artisans interviennent dans les délais convenus."
+    }
+  },
+  "cta": {
+    "headline": "Votre projet commence ici.",
+    "subtext": "Obtenez votre devis gratuit en quelques minutes.",
+    "devis": "Devis en ligne",
+    "real": "Voir nos réalisations"
+  },
+  "real": {
+    "eyebrow": "Portfolio",
+    "headline": "Nos réalisations",
+    "subtext": "Chaque chantier est une nouvelle signature. Découvrez nos travaux réalisés avec passion et rigueur artisanale.",
+    "filter": {
+      "all": "Tous",
+      "carrelage": "Carrelage",
+      "placo": "Placo",
+      "peinture": "Peinture"
+    }
+  },
+  "devis": {
+    "eyebrow": "Gratuit & sans engagement",
+    "headline": "Votre devis en ligne",
+    "subtext": "Décrivez votre projet, ajoutez des photos. Réponse sous 48h.",
+    "section1": "Vos coordonnées",
+    "section2": "Votre projet",
+    "section3": "Photos de votre espace",
+    "section3Hint": "optionnel, max 5",
+    "nom": "Nom complet",
+    "telephone": "Téléphone",
+    "email": "Email",
+    "adresse": "Ville / Code postal",
+    "service": {
+      "label": "Type de travaux",
+      "carrelage": "Carrelage",
+      "placo": "Placo",
+      "peinture": "Peinture",
+      "multiple": "Plusieurs travaux"
+    },
+    "surface": "Surface approximative (m²)",
+    "surfacePlaceholder": "ex. 25",
+    "budget": {
+      "1": "Moins de 1 000€",
+      "2": "1 000€ – 3 000€",
+      "3": "3 000€ – 8 000€",
+      "4": "Plus de 8 000€",
+      "5": "À définir",
+      "label": "Budget envisagé"
+    },
+    "delai": {
+      "1": "Urgent (< 1 mois)",
+      "2": "1 à 3 mois",
+      "3": "3 à 6 mois",
+      "4": "Pas de contrainte",
+      "label": "Délai souhaité"
+    },
+    "description": {
+      "label": "Décrivez votre projet",
+      "placeholder": "Décrivez l'état actuel de la pièce, les travaux souhaités, vos préférences de matériaux, couleurs..."
+    },
+    "photos": {
+      "cta": "Glisser-déposer ou cliquer",
+      "hint": "JPG, PNG, WEBP — 8 Mo max par photo"
+    },
+    "submit": "Envoyer ma demande de devis",
+    "submitting": "Envoi en cours…",
+    "guarantee": "Réponse garantie sous 48h · Devis 100% gratuit · Sans engagement",
+    "success": {
+      "title": "Demande envoyée !",
+      "text": "Votre demande a bien été reçue. Nous vous recontacterons dans les 48 heures.",
+      "new": "Nouveau devis"
+    },
+    "sidebar": {
+      "call": {
+        "title": "Préférez appeler ?",
+        "hours": "Du lundi au samedi, 8h – 19h"
+      },
+      "email": {
+        "title": "Par email"
+      },
+      "why": "Pourquoi nous choisir ?"
+    },
+    "why": {
+      "1": "Plus de 20 ans d'expérience",
+      "2": "Artisans qualifiés & assurés",
+      "3": "Devis détaillé et transparent",
+      "4": "Respect des délais garantis",
+      "5": "Entreprise française de confiance"
+    }
+  },
+  "footer": {
+    "desc": "Artisans qualifiés au service de votre intérieur depuis 1965.",
+    "nav": "Navigation",
+    "contact": "Contact",
+    "available": "Disponible pour vos projets",
+    "rights": "Tous droits réservés"
+  },
+  "meta": {
+    "home": {
+      "title": "Rénovation France — Carrelage · Placo · Peinture",
+      "desc": "Artisans spécialisés en carrelage, placo et peinture. Devis gratuit, travail soigné, résultats garantis."
+    },
+    "real": {
+      "title": "Nos Réalisations — Rénovation France",
+      "desc": "Découvrez nos chantiers réalisés en carrelage, placo et peinture."
+    },
+    "devis": {
+      "title": "Devis Gratuit — Rénovation France",
+      "desc": "Demandez votre devis gratuit en ligne. Réponse sous 48h."
+    }
+  }
+}

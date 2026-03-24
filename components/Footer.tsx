@@ -1,13 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import { Phone, Mail, MapPin } from 'lucide-react';
-
-const navLinks = [
-  { href: '/', label: 'Accueil' },
-  { href: '/realisations', label: 'Réalisations' },
-  { href: '/devis', label: 'Devis gratuit' },
-];
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function Footer() {
+  const t = useTranslations();
+  const locale = useLocale();
+
+  const navLinks = [
+    { href: `/${locale}`, label: t('nav.home') },
+    { href: `/${locale}/realisations`, label: t('nav.realisations') },
+    { href: `/${locale}/devis`, label: t('nav.devis') },
+  ];
+
   return (
     <footer className="relative bg-charbon-900 border-t border-charbon-600">
       <div className="absolute inset-0 stripe-accent opacity-50 pointer-events-none" />
@@ -25,13 +31,12 @@ export default function Footer() {
               <span className="font-display tracking-widest text-sm uppercase">
                 Rénovation
               </span>
-              <div className="drapeau-bar ml-1">
+              <div className="drapeau-bar ms-1">
                 <span /><span /><span />
               </div>
             </div>
             <p className="text-acier-400 text-sm leading-relaxed mb-4">
-              Artisans spécialisés en carrelage, placo et peinture. Plus de 20
-              ans d&apos;expérience au service de vos projets de rénovation.
+              {t('footer.desc')}
             </p>
             <p className="font-mono text-xs text-acier-400">
               SIRET : 123 456 789 00012
@@ -41,7 +46,7 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <h3 className="text-flamme-400 font-display uppercase tracking-widest text-sm mb-6">
-              Navigation
+              {t('footer.nav')}
             </h3>
             <ul className="space-y-3">
               {navLinks.map((link) => (
@@ -61,7 +66,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="text-flamme-400 font-display uppercase tracking-widest text-sm mb-6">
-              Contact
+              {t('footer.contact')}
             </h3>
             <ul className="space-y-4">
               <li>
@@ -103,12 +108,11 @@ export default function Footer() {
       <div className="relative z-10 border-t border-charbon-600 py-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-acier-400 text-xs">
-            &copy; {new Date().getFullYear()} Rénovation France. Tous droits
-            réservés.
+            &copy; {new Date().getFullYear()} Rénovation France. {t('footer.rights')}.
           </p>
           <div className="flex items-center gap-2 text-xs text-acier-400">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            Disponible pour vos projets
+            {t('footer.available')}
           </div>
         </div>
       </div>

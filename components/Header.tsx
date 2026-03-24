@@ -4,17 +4,21 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Phone, Menu, X } from 'lucide-react';
-
-const navLinks = [
-  { href: '/', label: 'Accueil' },
-  { href: '/realisations', label: 'Réalisations' },
-  { href: '/devis', label: 'Devis' },
-];
+import { useTranslations, useLocale } from 'next-intl';
+import LangSwitcher from './LangSwitcher';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations();
+  const locale = useLocale();
+
+  const navLinks = [
+    { href: `/${locale}`, label: t('nav.home') },
+    { href: `/${locale}/realisations`, label: t('nav.realisations') },
+    { href: `/${locale}/devis`, label: t('nav.devis') },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -32,7 +36,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href={`/${locale}`} className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 bg-gradient-flamme rotate-45 transition-transform duration-300 group-hover:rotate-[54deg] flex items-center justify-center rounded-sm">
             <span className="text-white font-display font-bold text-lg -rotate-45">
               R
@@ -46,7 +50,7 @@ export default function Header() {
               Carrelage · Placo · Peinture
             </span>
           </div>
-          <div className="drapeau-bar ml-2">
+          <div className="drapeau-bar ms-2">
             <span /><span /><span />
           </div>
         </Link>
@@ -64,6 +68,7 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <LangSwitcher />
           <a href="tel:0649427544" className="btn-flamme text-sm py-2 px-6 rounded">
             <Phone size={16} />
             06 49 42 75 44
@@ -96,6 +101,7 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <LangSwitcher />
             <a
               href="tel:0649427544"
               className="btn-flamme text-sm py-3 px-6 rounded text-center mt-2"

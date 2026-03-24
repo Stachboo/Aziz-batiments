@@ -38,7 +38,7 @@ export async function sendDevisEmail(data: DevisEmailData) {
   // EMAIL 1 — Internal notification
   await getResend().emails.send({
     from: 'onboarding@resend.dev',
-    to: 'hadriabdelaziz1965@gmail.com',
+    to: 'stachboo@gmail.com',
     subject: `🔔 Nouveau devis — ${nom} — ${service || 'Non précisé'}`,
     html: `
 <!DOCTYPE html>

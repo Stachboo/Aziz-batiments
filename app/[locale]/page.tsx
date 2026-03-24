@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
+import HeroTitle from '@/components/HeroTitle';
 
 export default function Home({ params }: { params: { locale: string } }) {
   setRequestLocale(params.locale);
@@ -125,22 +126,11 @@ export default function Home({ params }: { params: { locale: string } }) {
               </div>
             </div>
 
-            {/* H1 */}
-            <h1
-              className="font-display font-bold uppercase leading-[0.9] mb-8"
-              style={{ fontSize: 'clamp(36px, 8vw, 96px)' }}
-            >
-              <span className="block text-white">{t('hero.headline1')}</span>
-              <span
-                className="block"
-                style={{
-                  WebkitTextStroke: '2px #f97316',
-                  color: 'transparent',
-                }}
-              >
-                {t('hero.headline2')}
-              </span>
-            </h1>
+            {/* H1 — GSAP 3D animated */}
+            <HeroTitle
+              line1={t('hero.headline1')}
+              line2={t('hero.headline2')}
+            />
 
             {/* Subtext */}
             <p className="text-acier-400 font-body text-base sm:text-lg max-w-xl mb-10">

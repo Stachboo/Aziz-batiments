@@ -23,6 +23,8 @@ export default function middleware(request: NextRequest) {
     });
   }
 
+  response.headers.set('Cache-Control', 'public, max-age=0, must-revalidate');
+
   return response;
 }
 
